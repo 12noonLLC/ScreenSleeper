@@ -1,4 +1,4 @@
-# ScreenSleeper by [12noon.com](https://12noon.com)
+# ScreenSleeper by [12noon LLC](https://12noon.com)
 
 [![.NET](https://github.com/skst/ScreenSleeper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/skst/ScreenSleeper/actions/workflows/dotnet.yml)
 

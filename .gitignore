@@ -2,4 +2,6 @@ bin/
 obj/
 .vs/
 *.user
+*.lnk
 Directory.Build.props
+.runsettings
