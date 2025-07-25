@@ -1,6 +1,6 @@
 # ScreenSleeper by [12noon LLC](https://12noon.com)
 
-[![.NET](https://github.com/skst/ScreenSleeper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/skst/ScreenSleeper/actions/workflows/dotnet.yml)
+[![Build and Tests](https://github.com/12noonLLC/ScreenSleeper/actions/workflows/build.yml/badge.svg)](https://github.com/12noonLLC/ScreenSleeper/actions/workflows/build.yml)
 
 Turn off screen after user idle or delay.
 
