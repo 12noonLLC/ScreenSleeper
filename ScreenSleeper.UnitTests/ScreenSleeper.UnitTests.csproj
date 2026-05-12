@@ -1,12 +1,20 @@
-﻿<Project Sdk="MSTest.Sdk/3.3.1">
+﻿<Project Sdk="MSTest.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
-    <Platforms>AnyCPU;x64</Platforms>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+		<Platforms>x64</Platforms>
+		<PlatformTarget>x64</PlatformTarget>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ScreenSleeper\ScreenSleeper.csproj" />
-  </ItemGroup>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ScreenSleeper\ScreenSleeper.csproj" />
+	</ItemGroup>
 
 </Project>

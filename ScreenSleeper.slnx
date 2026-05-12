@@ -1,0 +1,19 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".runsettings" />
+    <File Path="Directory.Build.props" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="ScreenSleeper.UnitTests/ScreenSleeper.UnitTests.csproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="ScreenSleeper/ScreenSleeper.csproj">
+    <Platform Project="x64" />
+  </Project>
+</Solution>
