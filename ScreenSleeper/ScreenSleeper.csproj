@@ -16,6 +16,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="System.CommandLine" Version="2.0.8" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="monitor_screensaver.ico">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>

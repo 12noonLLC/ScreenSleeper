@@ -2,7 +2,7 @@
   "profiles": {
     "ScreenSleeper": {
       "commandName": "Project",
-      "commandLineArgs": "/? /delay 10 /idle 1"
+      "commandLineArgs": "--delay 5 --help"
     }
   }
 }

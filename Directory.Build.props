@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+	<PropertyGroup>
+		<Product>ScreenSleeper</Product>
+		<Description>Windows sometimes forgets to turn off your screens according to your "Power &amp; sleep" settings. This application ensures your monitors are turned off on demand, after user idle, or after a simple delay.</Description>
+
+		<Authors>Stefan K.S. Tucker</Authors>
+		<Company>12noon LLC</Company>
+		<Year>$([System.DateTime]::UtcNow.Year)</Year>
+		<Copyright>© 2021-$(Year) 12noon LLC</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<VersionPrefix>1.4.0</VersionPrefix>
+		<VersionSuffix Condition="'$(Configuration)' == 'Debug'">debug</VersionSuffix>
+		<!-- `Version` defaults to `VersionPrefix`+`VersionSuffix` -->
+
+		<!-- Windows file properties A.B.C.0 -->
+		<FileVersion>$(VersionPrefix).0</FileVersion>
+
+		<!-- Stable API identity version, usually updated only on breaking changes -->
+		<!-- Only set in individual projects. -->
+		<AssemblyVersion />
+
+		<!-- Used for human-readable version, About, Explorer, crash logs, marketing|build metadata -->
+		<!-- Defaults to `Version`+githash -->
+		<InformationalVersion />
+		<IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
+
+		<!-- Used for packaging (.wapproj) -->
+		<AppxBundleVersion>$(Version)</AppxBundleVersion>
+
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<ArtifactsPath>C:\VSIntermediate\ScreenSleeper\artifacts\</ArtifactsPath>
+		<BaseIntermediateOutputPath>$(ArtifactsPath)obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+	</PropertyGroup>
+
+</Project>
