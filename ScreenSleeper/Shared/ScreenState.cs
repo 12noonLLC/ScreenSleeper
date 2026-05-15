@@ -11,7 +11,7 @@ public static class ScreenState
 	private static void SetScreenState(State state)
 	{
 		// https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand
-		_ = SendMessage(0xFFFF, Messages.WM_SYSCOMMAND, Constants.SC_MONITORPOWER, (int)state);
+		_ = PostMessage(Constants.HWND_BROADCAST, Messages.WM_SYSCOMMAND, Constants.SC_MONITORPOWER, (int)state);
 	}
 
 
@@ -21,6 +21,7 @@ public static class ScreenState
 	}
 	private static class Constants
 	{
+		public static readonly nint HWND_BROADCAST = 0xFFFF;
 		public const int SC_MONITORPOWER = 0xF170;
 	}
 
@@ -32,5 +33,6 @@ public static class ScreenState
 	}
 
 	[DllImport("user32.dll")]
-	private static extern int SendMessage(int hWnd, uint msg, int wParam, int lParam);
+	[return: MarshalAs(UnmanagedType.Bool)]
+	private static extern bool PostMessage(nint hWnd, int msg, int wParam, int lParam);
 }
