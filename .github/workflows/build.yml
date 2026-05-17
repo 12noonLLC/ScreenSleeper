@@ -127,6 +127,9 @@ jobs:
             --configuration ${{ env.BUILD_CONFIGURATION }} `
             --no-restore
 
+      #- name: 💯 Run unit tests
+        # NO TESTS
+
   build_publish:
     name: 📦 Build Standalone
     needs: build
@@ -153,7 +156,7 @@ jobs:
             --property:SelfContained=true `
             --property:PublishReadyToRun=false `
             --property:PublishTrimmed=false `
-            --property:PublishSingleFile=false `
+            --property:PublishSingleFile=true `
             --property:PublishDir="${{ env.PUBLISH_FILES_PATH }}\local"
 
       - name: 📦 Zip and delete standalone folder
@@ -174,6 +177,7 @@ jobs:
           path: ${{ env.PUBLISH_FILES_PATH }}
           if-no-files-found: error
           retention-days: 1
+
   #
   # Production release must be on 'main' and the tag must begin with 'v'.
   # If a release already exists, do not create the release.

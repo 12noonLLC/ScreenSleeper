@@ -109,25 +109,25 @@ if exist "%TARGET_EXE_PATH%" (
 
 echo.
 echo === DOTNET BUILD UNIT TESTS ===
-dotnet build ^
-	"%PROJECT_TESTS_PATH%" ^
-	--configuration Release ^
-	--no-restore
+REM dotnet build ^
+REM 	"%PROJECT_TESTS_PATH%" ^
+REM 	--configuration Release ^
+REM 	--no-restore
 
-if errorlevel 1 exit /b %ERRORLEVEL%
+REM if errorlevel 1 exit /b %ERRORLEVEL%
 
 echo.
 echo === DOTNET TEST ===
-dotnet test ^
-	--project "%PROJECT_TESTS_PATH%" ^
-	--configuration Release ^
-	--no-restore ^
-	--no-build ^
-	--no-ansi ^
-	--no-progress ^
-	--output detailed
+REM dotnet test ^
+REM 	--project "%PROJECT_TESTS_PATH%" ^
+REM 	--configuration Release ^
+REM 	--no-restore ^
+REM 	--no-build ^
+REM 	--no-ansi ^
+REM 	--no-progress ^
+REM 	--output detailed
 
-if errorlevel 1 exit /b %ERRORLEVEL%
+REM if errorlevel 1 exit /b %ERRORLEVEL%
 
 ::
 :: PUBLISH
@@ -146,7 +146,7 @@ dotnet publish ^
 	--property:SelfContained=true ^
 	--property:PublishReadyToRun=false ^
 	--property:PublishTrimmed=false ^
-	--property:PublishSingleFile=false ^
+	--property:PublishSingleFile=true ^
 	--property:PublishDir="%PUBLISH_FILES_PATH%"
 
 if errorlevel 1 exit /b %ERRORLEVEL%

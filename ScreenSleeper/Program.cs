@@ -26,7 +26,13 @@ internal class CustomHelpAction(HelpAction _defaultAction) : SynchronousCommandL
 {
 	public override int Invoke(ParseResult parseResult)
 	{
-		parseResult.InvocationConfiguration.Output.Write("header");
+		ApplicationInformation appInfo = new();
+		TextWriter output = parseResult.InvocationConfiguration.Output;
+		output.WriteLine();
+		output.WriteLine($"{appInfo.Name} {appInfo.VersionShort}");
+		output.WriteLine(appInfo.Company);
+		output.WriteLine(appInfo.Copyright);
+		output.WriteLine();
 
 		int result = _defaultAction.Invoke(parseResult);
 
@@ -194,13 +200,6 @@ public class Program
 		// If the user requested help, print application information before the help text.
 		if (parseResult.Action is HelpAction helpAction)
 		{
-			ApplicationInformation appInfo = new();
-			TextWriter output = parseResult.InvocationConfiguration.Output;
-			output.WriteLine();
-			output.WriteLine($"{appInfo.Name} {appInfo.VersionShort}");
-			output.WriteLine(appInfo.Company);
-			output.WriteLine(appInfo.Copyright);
-			output.WriteLine();
 			new CustomHelpAction(helpAction).Invoke(parseResult);
 			return;
 		}
