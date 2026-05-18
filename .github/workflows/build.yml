@@ -157,14 +157,7 @@ jobs:
             --property:PublishReadyToRun=false `
             --property:PublishTrimmed=false `
             --property:PublishSingleFile=true `
-            --property:PublishDir="${{ env.PUBLISH_FILES_PATH }}\local"
-
-      - name: 📦 Zip and delete standalone folder
-        working-directory: ${{ env.PUBLISH_FILES_PATH_LINUX }}
-        shell: pwsh
-        run: |
-          Compress-Archive -Path "local/*" -DestinationPath "${{env.ARTIFACT_NAME}}.zip" -Force
-          Remove-Item "local" -Recurse -Force
+            --property:PublishDir="${{ env.PUBLISH_FILES_PATH }}\"
 
       - name: 📂 Copy extra files to deployment folder
         run: |
@@ -343,6 +336,7 @@ jobs:
     needs: release
     if: ${{ always() }}
     runs-on: ubuntu-latest
+
     steps:
       # Delete publish artifact so it does not count against storage
       # https://github.com/marketplace/actions/delete-artifact
