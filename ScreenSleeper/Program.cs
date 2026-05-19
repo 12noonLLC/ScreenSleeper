@@ -1,4 +1,4 @@
-﻿using Shared;
+using Shared;
 using System;
 using System.CommandLine;
 using System.CommandLine.Help;
@@ -182,20 +182,6 @@ public class Program
 		});
 
 		ParseResult parseResult = rootCommand.Parse(args);
-		if (parseResult.Errors.Count > 0)
-		{
-			parseResult.InvocationConfiguration.Output.WriteLine();
-			foreach (var error in parseResult.Errors)
-			{
-				parseResult.InvocationConfiguration.Output.WriteLine(error.Message);
-			}
-			parseResult.InvocationConfiguration.Output.WriteLine();
-			parseResult.InvocationConfiguration.Output.WriteLine("Use --help for usage information.");
-			parseResult.InvocationConfiguration.Output.WriteLine();
-
-			Task.Delay(TimeSpan.FromSeconds(5)).Wait();
-			return;
-		}
 
 		// If the user requested help, print application information before the help text.
 		if (parseResult.Action is HelpAction helpAction)
@@ -205,6 +191,12 @@ public class Program
 		}
 
 		parseResult.Invoke();
+
+		// If there are any errors, keep the console open for a bit so the user can see them.
+		if (parseResult.Errors.Count > 0)
+		{
+			Task.Delay(TimeSpan.FromSeconds(5)).Wait();
+		}
 	}
 
 	private static async Task ProcessScreenStates(TimeSpan delayIdle, TimeSpan delay, TimeSpan delayStandby, bool bLock, bool bSleep, bool bHibernate)
