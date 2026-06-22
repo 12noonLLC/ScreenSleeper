@@ -1,4 +1,4 @@
-﻿# .github/workflows/build.yml
+# .github/workflows/build.yml
 #
 # Build and Release workflow for ScreenSleeper
 #
@@ -75,7 +75,7 @@ jobs:
       # https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases
       - &step_checkout
         name: 🧾 Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - &step_compare_versions
         name: 🔎 Display app version in props
@@ -209,7 +209,7 @@ jobs:
 
     steps:
       - name: 🧾 Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
